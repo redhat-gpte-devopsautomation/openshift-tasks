@@ -1,0 +1,5 @@
+projectKey=org.jboss.quickstarts.eap:jboss-tasks-rs
+serverUrl=http://sonarqube-sonarqube.127.0.0.1.nip.io
+dashboardUrl=http://sonarqube-sonarqube.127.0.0.1.nip.io/dashboard/index/org.jboss.quickstarts.eap:jboss-tasks-rs
+ceTaskId=AVpDxoPNN5F-rB6Ukbru
+ceTaskUrl=http://sonarqube-sonarqube.127.0.0.1.nip.io/api/ce/task?id=AVpDxoPNN5F-rB6Ukbru
