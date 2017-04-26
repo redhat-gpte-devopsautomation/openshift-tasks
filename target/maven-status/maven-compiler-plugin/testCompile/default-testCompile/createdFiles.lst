@@ -1,8 +1,0 @@
-org/jboss/as/quickstarts/tasksrs/DefaultDeployment.class
-org/jboss/as/quickstarts/tasksrs/category/IntegrationTest.class
-org/jboss/as/quickstarts/tasksrs/service/TaskResourceTest.class
-org/jboss/as/quickstarts/tasksrs/service/UserResourceTest.class
-org/jboss/as/quickstarts/tasksrs/TaskDaoTest.class
-org/jboss/as/quickstarts/tasksrs/service/TaskResourceTest$1.class
-org/jboss/as/quickstarts/tasksrs/UserDaoTest.class
-org/jboss/as/quickstarts/tasksrs/category/UnitTest.class
