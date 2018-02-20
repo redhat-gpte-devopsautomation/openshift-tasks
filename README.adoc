@@ -1,10 +1,7 @@
-OpenShift Tasks: JAX-RS, JPA quickstart 
-==============================
-[![CircleCI](https://circleci.com/gh/OpenShiftDemos/openshift-tasks.svg?&style=shield&circle-token=1462d2d99334a912b32f758616eb39f6390a200b)](https://circleci.com/gh/OpenShiftDemos/openshift-tasks)
+= OpenShift Tasks
 
-What is it?
------------
-a
+== What is it?
+
 The `tasks-rs` quickstart demonstrates how to implement a JAX-RS service that uses JPA 2.0 persistence deployed to Red Hat JBoss Enterprise Application Platform.
 
 The application manages User and Task JPA entities. A user represents an authenticated principal and is associated with zero or more Tasks. Service methods validate that there is an authenticated principal and the first time a principal is seen, a JPA User entity is created to correspond to the principal. JAX-RS annotated methods are provided for associating Tasks with this User and for listing and removing Tasks.
@@ -13,37 +10,54 @@ _Note_: This quickstart uses the H2 database included with Red Hat JBoss Enterpr
 
 _Note_: This quickstart uses a `*-ds.xml` datasource configuration file for convenience and ease of database configuration. These files are deprecated in JBoss EAP 6.4 and should not be used in a production environment. Instead, you should configure the datasource using the Management CLI or Management Console. Datasource configuration is documented in the [Administration and Configuration Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/) for Red Hat JBoss Enterprise Application Platform._
 
+== Users and Passwords
 
-REST Endpoints on OpenShift
--------------------
+Users and passwords are defined in `configuration\application-users.properties` and `application-roles.properties`. Users can be created using the JBoss `add-users.sh` shell script in a JBoss EAP installation.
 
-* Create task
+Currently the following users are defined:
 
-  ```
-  curl -i -u 'redhat:redhat1!' -H "Content-Length: 0" -X POST http://tasks-dev.10.1.2.10.xip.io/ws/tasks/task1
-  ```
+[options=header]
+|===
+|User|Password
+|tasks|redhat1
+|redhat|redhat1
+|gpte|redhat1
+|===
 
+== REST Endpoints on OpenShift
+
+* Create a task with name {task_name}
++
+[source,bash]
+----
+curl -u tasks:redhat1 -H 'Content-Length: 0' -X POST http://{tasks_route}/ws/tasks/{task_name}
+----
++
 * Get a task by id
-
-  ```
-  curl -u 'redhat:redhat1!' -H "Accept: application/json" -X GET http://tasks-dev.10.1.2.10.xip.io/ws/tasks/1
-  ```
-
-* Get all user tasks
-
-  ```
-
-  curl -u 'redhat:redhat1!' -H "Accept: application/json" -X GET http://tasks-dev.10.1.2.10.xip.io/ws/tasks
-  ```
-
++
+[source,bash]
+----
+curl -u 'tasks:redhat1!' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks/{tasks_id}
+----
++
+* Get all tasks for user
++
+[source,bash]
+----
+curl -u 'tasks:redhat1!' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks
+----
++
 * Delete a task by id
-
-  ```
-  curl -i -u 'redhat:redhat1!' -X DELETE http://tasks-dev.10.1.2.10.xip.io/ws/tasks/1
-  ```
-
++
+[source,bash]
+----
+curl -i -u 'tasks:redhat1!' -X DELETE http://{tasks_route}/ws/tasks/{tasks_id}
+----
++
 * Generate CPU load. Last parameter is duration of load in seconds
-
-  ```
-  curl -X GET http://tasks-dev.10.1.2.10.xip.io/demo/load/5 # 5 seconds
-  ```
++
+[source,bash]
+----
+# 5 seconds
+curl -X GET http://{tasks_route}/ws/demo/load/5
+----
