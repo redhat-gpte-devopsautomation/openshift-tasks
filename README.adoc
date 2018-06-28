@@ -37,21 +37,21 @@ curl -u tasks:redhat1 -H 'Content-Length: 0' -X POST http://{tasks_route}/ws/tas
 +
 [source,bash]
 ----
-curl -u 'tasks:redhat1!' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks/{tasks_id}
+curl -u 'tasks:redhat1' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks/{tasks_id}
 ----
 +
 * Get all tasks for user
 +
 [source,bash]
 ----
-curl -u 'tasks:redhat1!' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks
+curl -u 'tasks:redhat1' -H "Accept: application/json" -X GET http://{tasks_route}/ws/tasks
 ----
 +
 * Delete a task by id
 +
 [source,bash]
 ----
-curl -i -u 'tasks:redhat1!' -X DELETE http://{tasks_route}/ws/tasks/{tasks_id}
+curl -i -u 'tasks:redhat1' -X DELETE http://{tasks_route}/ws/tasks/{tasks_id}
 ----
 +
 * Generate CPU load. Last parameter is duration of load in seconds
