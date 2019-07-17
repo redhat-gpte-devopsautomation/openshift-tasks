@@ -2,7 +2,7 @@
 <settings>
   <mirrors>
     <mirror>
-      <id>Nexus</id>
+      <id>nexus</id>
       <name>Nexus Public Mirror</name>
       <url>http://nexus3.opentlc-shared.svc.cluster.local:8081/repository/maven-all-public/</url>
       <mirrorOf>*</mirrorOf>
